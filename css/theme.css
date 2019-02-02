@@ -234,13 +234,13 @@ table tr:nth-last-child(1) td {
 }
 
 .header {
-    background: #FAFAFA;
     padding: 30px;
     color: #FFF;
     font-weight: bold;
     font-size: 22px;
     position: relative;
     height: 40px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .header .icon {
@@ -686,7 +686,6 @@ figure#user_logo a {
     display: block;
     width: 100px;
     height: 100px;
-    background-color: #000;
     border-radius: 100%;
     margin: 0 auto;
     text-indent: -9999px;
