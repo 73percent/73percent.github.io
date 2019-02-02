@@ -219,7 +219,6 @@ table tr:nth-last-child(1) td {
 .container {
     max-width: 700px;
     height: auto;
-    min-height: calc(100% - 260px);
     margin: 0 auto;
     padding: 20px;
 }
@@ -294,39 +293,8 @@ table tr:nth-last-child(1) td {
     margin: 0 auto;
 }
 
-h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
-  color: #CCC;
-  margin-left: -20px;
-  margin-right: 10px;
-  content: "#";
-}
 
-h1 {
-  counter-reset: first;
-}
 
-h2 {
-  counter-increment: first;
-  counter-reset: second;
-}
-h2:before {
-  content: counter(first) ".";
-}
-
-h3 {
-  counter-increment: second;
-  counter-reset: third;
-}
-h3:before {
-  content: counter(first) "." counter(second) ".";
-}
-
-h4 {
-  counter-increment: third;
-}
-h4:before {
-  content: counter(first) "." counter(second) "." counter(third) ".";
-}
 
 .box-green {
   background: #F1F8E9 !important;
