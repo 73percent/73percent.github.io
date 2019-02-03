@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>Tôi đã xây dựng blog của mình như thế nào | 73percent </title>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html;"><meta name=viewport content="initial-scale=1.0 maximum-scale=1.0">
+        <meta property='og:image' content='https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/19420455_633136263557074_7841937636162364169_n.jpg?_nc_cat=111&_nc_oc=AQmsLmnx3K9OnmCQjXUI_41QfiwkKMQ9mB4LJ3mT4fEB8GKCS6oZzezlXk8oo0A6Mn0OdxgkIHD6UrdiKqcWCsmV&_nc_ht=scontent.fhan3-2.fna&oh=64eaf45da97c67edbb28c23fd947d44e&oe=5CBE3C03'>
+        <link rel="icon" type="image/png" sizes="32x32" href="../img/avatar-32x32.jpg">
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/avatar-16x16.jpg">
+        <link rel="manifest" href="../manifest.json">
+        <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+        <link href="../css/theme-post.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/highlight/tomorrow.css">
+        <link rel="stylesheet" href="../css/fontello.css">
+        <link rel="stylesheet" href="../emoji/css/messenger.min.css">
+        <link rel="stylesheet" href="../emoji/css/thinking.ext.css">
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/autosizing.js"></script>
+        <script src="../js/fetch.js"></script>
+        <script>
+        hljs.initHighlightingOnLoad();
+        </script>
+    </head>
+    <body>
+        <div class="header">
+          <a href="/"><span class="header-link">73percent</span></a> 
+
+          <a class="subscribe right" href="http://eepurl.com/gfsHkH" rel="noopener noreferrer" target="blank">Theo dõi blog này</a>
+        </div>
+        <div class="container">
+            <div class="main">
+                <h1>Tôi đã xây dựng blog của mình như thế nào</h1>
+                <p>Vậy là năm 2018 âm lịch đã kết thúc rồi và mở ra một chương mới đó là năm 2019, tôi quyết định làm một cái
+gì đó mới mẻ sau bao nhiêu năm ăn hại <i class='em em-think-cry'></i>
+Thế là mấy hôm này mỗi hôm một ít lại hì hục đi built cái blog của riêng của mình dựa trên mã nguồn của ristretto-rs <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> này lên Github. Bài viết này K. sẽ tranh thủ giới thiệu qua một chút về cái mã nguồn này dù mình chỉ đi customize lại rồi publish lên github :p.</p>
+<h2><a href="#nó-hoạt-động-như-thế-nào" aria-hidden="true" class="anchor" id="nó-hoạt-động-như-thế-nào"></a>Nó hoạt động như thế nào</h2>
+<p>Blog engine này được xây dựng dựa trên rust với cơ chế hoạt động khá đơn giản :
+Post.md  ----&gt; Generator-rs  ----&gt; Post.html ----&gt; Github pages</p>
+<p>Trong project Ristretto-rs, nhân vật chính, cũng là bộ chuyển đổi đó là folder generator-rs, source của folder này thì dài đến cả ngàn dòng, nhưng nhìn chung chức năng của nó là: Chuyển đổi tất cả các file Markdown ở trong thư mục /posts thành HTML.</p>
+<p>Sau khi viết bài xong, chỉ cần chạy generator và thế là bạn đã có tất cả các file HTML cần thiết, chỉ việc copy nó lên một cái HTTP server nào đó là xong như mình là upload lên github pages.</p>
+<h3><a href="#cách-build" aria-hidden="true" class="anchor" id="cách-build"></a>Cách build</h3>
+<p>Để build blog này thì đầu tiên các bạn vào folder generator-rs rồi gõ .</p>
+<pre><code> cargo build
+</code></pre>
+<p>Sau đó thì chỉ cần chở vài phút là nó build xong !
+Rồi sau đó copy generator-rs.exe trong generator-rs/target/debug ra folder mẹ
+Cuối cùng các bạn chỉ cần chạy trong cmd :</p>
+<pre><code>generator-rs.exe posts
+</code></pre>
+<p>Vậy là xong , các post đã được generate thành các file html.</p>
+<p>Lưu ý : Chỉ các file có mở đầu như hình dưới mới được generate, còn lại sẽ không được gen ra html :</p>
+<p>Và để customize blog thành cho riêng mình các bạn có thể edit lại các file html trong templates/</p>
+<h3><a href="#các-chức-năng-của-blog" aria-hidden="true" class="anchor" id="các-chức-năng-của-blog"></a>Các chức năng của blog</h3>
+<p>Blog engine này được xây dựng với khá nhiều chức năng khá là hay như là emoji,comment,mathjax,...nên
+cũng khá là thuận tiện cho các bạn trong việc viết blog của mình.
+Tuy nhiên không hiểu sao mình lại thấy cái comment bị lỗi nên đành phải thay thế bằng disqus <i class='em em-think-cry'></i></p>
+<h2><a href="#conclusion" aria-hidden="true" class="anchor" id="conclusion"></a>Conclusion</h2>
+<p>Qua bài viết này mình đã hướng dẫn các bạn cách tự build blog của mình dựa trên blog engine ristretto-rs của thefullsnack (<a href="https://thefullsnack.com">https://thefullsnack.com</a>) #shamelesspr =)) .
+Mong rằng qua bài viết này các bạn có thể tạo được một blog riêng cho mình.
+Và đừng chần chừ gì nữa, hay subscribe ngay blog 73percent thôi nào <i class='em em-think-hopeful'></i></p>
+<p>p/s: Lần đầu viết blog nên nếu có lỗi gì mấy thí chủ có thể comment ngay bên dưới</p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>blog engine của thefullsnack (<a href="https://github.com/huytd/ristretto-rs">https://github.com/huytd/ristretto-rs</a>) <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+                <div class='other-tags'><b>Tags:</b> <a class='topic-tag' href='/tags/random.html'>random</a></div>
+                <div class="copyright">
+                Vì tui thích nổi tiếng nên bạn được toàn quyền chia sẻ, trích dẫn hoặc copy, post lại, nhưng vui lòng ghi rõ nguồn, tác giả và không làm thay đổi nội dung bài viết.
+                </div>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "https://thefullsnack.com/posts/how-i-built-my-blog.html";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "how-i-built-my-blog"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://73percent.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+        <div class="footer">
+        <p><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="https://thefullsnack.com/img/by-nc-nd.png" height="15" /></a></p>
+        <p>Created with <i class="em em-coffee"></i> <a href="http://github.com/huytd/ristretto-rs">ristretto.rs</a></p>
+            <div class="social">
+                <a target="_blank" href="http://facebook.com/73percentvn"><i class="icon-facebook-squared"></i></a>
+                <a target="_blank" href="http://twitter.com/mexkvn"><i class="icon-twitter-squared"></i></a>
+                <a target="_blank" href="http://github.com/73percent"><i class="icon-github-squared"></i></a>
+                <a target="_blank" href="/posts/english-posts.html"><i class="icon-emo-coffee"></i></a>
+            </div>
+        </div>
+        <script type="text/javascript" async src="../js/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            skipTags: ["script","noscript","style","textarea", "code"],
+            ignoreClass: ["disqus_thread"]
+          }
+        });
+        </script>
+    </body>
+</html>
